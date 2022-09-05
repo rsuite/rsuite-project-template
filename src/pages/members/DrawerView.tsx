@@ -1,15 +1,5 @@
 import React from 'react';
-import {
-  Drawer,
-  DrawerProps,
-  Button,
-  Form,
-  Stack,
-  InputNumber,
-  InputGroup,
-  Slider,
-  Rate
-} from 'rsuite';
+import { Drawer, DrawerProps, Button, Form, Stack, Slider, Rate } from 'rsuite';
 
 const DrawerView = (props: DrawerProps) => {
   const { onClose, ...rest } = props;
@@ -60,14 +50,6 @@ const DrawerView = (props: DrawerProps) => {
           <Form.Group>
             <Form.ControlLabel>Skill Proficiency</Form.ControlLabel>
             <Form.Control name="skill" accepter={Slider} progress />
-          </Form.Group>
-
-          <Form.Group>
-            <Form.ControlLabel>Income</Form.ControlLabel>
-            <InputGroup style={{ width: '100%' }}>
-              <InputGroup.Addon>$</InputGroup.Addon>
-              <Form.Control name="income" accepter={InputNumber} style={{ width: '100%' }} />
-            </InputGroup>
           </Form.Group>
         </Form>
       </Drawer.Body>

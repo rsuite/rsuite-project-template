@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom';
 import Logo from './Logo';
 import { Stack } from 'rsuite';
 
-const Brand = props => {
+const Brand = ({ showText, ...props }) => {
   return (
     <Stack className="brand" {...props}>
       <Logo height={26} style={{ marginTop: 6 }} />
-      <Link to="/">
-        <span style={{ marginLeft: 14 }}>Admin Template</span>
-      </Link>
+      {showText && (
+        <Link to="/">
+          <span style={{ marginLeft: 14 }}>PMP Template</span>
+        </Link>
+      )}
     </Stack>
   );
 };

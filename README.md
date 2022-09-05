@@ -1,18 +1,16 @@
-# Admin Dashboard Template
+# Project Management Template
 
 Ease developers’ life with the React Suite 5. TypeScript will help with optimizing. Quick start & easily extensible code.
 
-![preview](./preview-1.png)
-
-![preview](./preview-2.png)
+![preview](./preview.png)
 
 ## Development
 
 Fork this repo to your namespace and clone to your local machine.
 
 ```
-git clone git@github.com:<YOUR NAME>/rsuite-admin-template.git
-$ cd rsuite-admin-template
+git clone git@github.com:<YOUR NAME>/rsuite-project-template.git
+$ cd rsuite-project-template
 ```
 
 Install dependencies

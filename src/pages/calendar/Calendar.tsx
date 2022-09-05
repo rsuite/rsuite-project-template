@@ -20,7 +20,7 @@ const Calendar = () => {
   };
 
   return (
-    <PageContent className="calendar-app">
+    <PageContent className="calendar-app" bodyFill>
       <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         headerToolbar={{

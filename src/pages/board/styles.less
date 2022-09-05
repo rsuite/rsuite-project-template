@@ -1,0 +1,55 @@
+.board-column {
+  background: #f5f8fa;
+  width: 300px;
+
+  .rs-list {
+    box-shadow: none;
+  }
+
+  .rs-list-item {
+    border-radius: 6px;
+    border: none;
+    box-shadow: none;
+    padding: 16px;
+    margin-bottom: 8px;
+    user-select: none;
+
+    .rs-progress-line {
+      padding: 8px 0;
+    }
+  }
+  .card {
+    .card-actions {
+      opacity: 0;
+    }
+    &:hover .card-actions {
+      opacity: 1;
+    }
+  }
+}
+
+.text-editor {
+  position: relative;
+  cursor: pointer;
+
+  .rs-input {
+    opacity: 0;
+    width: 200px;
+  }
+  .text-view {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    line-height: 36px;
+  }
+
+  &.editable {
+    .rs-input {
+      opacity: 1;
+    }
+    .text-view {
+      z-index: -1;
+    }
+  }
+}

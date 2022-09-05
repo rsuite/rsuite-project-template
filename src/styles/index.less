@@ -5,18 +5,13 @@
 @import '../components/Header/styles.less';
 @import '../components/RadioTile/styles.less';
 
-@import '../pages/tables/members/styles.less';
-@import '../pages/dashboard/styles.less';
-@import '../pages/forms/basic/styles.less';
-@import '../pages/forms/wizard/styles.less';
+@import '../pages/members/styles.less';
 @import '../pages/calendar/styles.less';
+@import '../pages/board-list/styles.less';
+@import '../pages/board/styles.less';
 
 //rewrite base color
 @base-color: #34c3ff;
-
-body {
-  background: #f5f8fa;
-}
 
 .text-muted {
   color: @B700;
@@ -26,6 +21,7 @@ body {
   position: fixed;
   height: 100vh;
   z-index: 3;
+  border-right: 1px solid #f5f8fa;
 }
 
 .page-container {

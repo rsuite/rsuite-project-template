@@ -5,7 +5,7 @@ export function mockUsers(length: number) {
     const firstName = faker.name.firstName();
     const lastName = faker.name.lastName();
     const gender = faker.name.gender(true) as 'female' | 'male';
-    const name = faker.name.findName(firstName, lastName, gender);
+    const name = faker.name.fullName({ firstName, lastName, sex: gender });
     const avatar = faker.image.avatar();
 
     const city = faker.address.city();

@@ -1,22 +1,21 @@
 import React from 'react';
-import { Breadcrumb, Panel } from 'rsuite';
-import DataTable from './DataTable';
+import { Panel, Breadcrumb } from 'rsuite';
+import Boards from './Boards';
 
 const Page = () => {
   return (
     <Panel
       header={
         <>
-          <h3 className="title">Members</h3>
+          <h3 className="title">Boards</h3>
           <Breadcrumb>
             <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-            <Breadcrumb.Item>Tables</Breadcrumb.Item>
-            <Breadcrumb.Item active>Members</Breadcrumb.Item>
+            <Breadcrumb.Item active>Boards</Breadcrumb.Item>
           </Breadcrumb>
         </>
       }
     >
-      <DataTable />
+      <Boards />
     </Panel>
   );
 };

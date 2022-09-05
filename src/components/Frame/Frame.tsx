@@ -1,11 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
-import { Container, Sidebar, Sidenav, Content, Nav, DOMHelper } from 'rsuite';
+import {
+  Container,
+  Sidebar,
+  Sidenav,
+  Content,
+  Nav,
+  DOMHelper,
+  SelectPicker,
+  Stack,
+  IconButton
+} from 'rsuite';
 import { Outlet } from 'react-router-dom';
 import NavToggle from './NavToggle';
 import Header from '../Header';
 import NavLink from '../NavLink';
 import Brand from '../Brand';
+import { Icon } from '@rsuite/icons';
+import { VscCalendar } from 'react-icons/vsc';
+import { BsKanbanFill } from 'react-icons/bs';
+import { FaUsers } from 'react-icons/fa';
+import { MdWorkspaces } from 'react-icons/md';
+import PlusIcon from '@rsuite/icons/plus';
+import boards from '@/data/boards';
 
 const { getHeight, on } = DOMHelper;
 
@@ -27,13 +44,14 @@ export interface NavItemData {
   children?: NavItemData[];
 }
 
-export interface FrameProps {
-  navs: NavItemData[];
-  children?: React.ReactNode;
-}
+const projects = [
+  { label: 'R&D Department', value: 1 },
+  { label: 'User Experience Center', value: 2 },
+  { label: 'Infrastructure', value: 3 },
+  { label: 'HYPERS', value: 4 }
+];
 
-const Frame = (props: FrameProps) => {
-  const { navs } = props;
+const Frame = () => {
   const [expand, setExpand] = useState(true);
   const [windowHeight, setWindowHeight] = useState(getHeight(window));
 
@@ -62,33 +80,58 @@ const Frame = (props: FrameProps) => {
         collapsible
       >
         <Sidenav.Header>
-          <Brand />
+          <Brand showText={expand} />
         </Sidenav.Header>
-        <Sidenav expanded={expand} appearance="subtle" defaultOpenKeys={['2', '3']}>
+        <Sidenav expanded={expand} appearance="subtle">
           <Sidenav.Body style={navBodyStyle}>
+            <div style={{ margin: 20 }} className="collapse-hide">
+              <SelectPicker
+                defaultValue={4}
+                data={projects}
+                searchable={false}
+                cleanable={false}
+                block
+                size="lg"
+                renderValue={(_value, item) => (
+                  <>
+                    <Icon as={MdWorkspaces} style={{ fontSize: '1.2em' }} /> {item?.['label']}
+                  </>
+                )}
+              />
+            </div>
+
             <Nav>
-              {navs.map(item => {
-                const { children, ...rest } = item;
-                if (children) {
-                  return (
-                    <Nav.Menu key={item.eventKey} placement="rightStart" trigger="hover" {...rest}>
-                      {children.map(child => {
-                        return <NavItem key={child.eventKey} {...child} />;
-                      })}
-                    </Nav.Menu>
-                  );
-                }
+              <NavItem
+                title="Boards"
+                to="boards"
+                eventKey="boards"
+                icon={<Icon as={BsKanbanFill} />}
+              />
 
-                if (rest.target === '_blank') {
-                  return (
-                    <Nav.Item key={item.eventKey} {...rest}>
-                      {item.title}
-                    </Nav.Item>
-                  );
-                }
+              <NavItem
+                title="Members"
+                to="members"
+                eventKey="members"
+                icon={<Icon as={FaUsers} />}
+              />
 
-                return <NavItem key={rest.eventKey} {...rest} />;
-              })}
+              <NavItem
+                title="Calendar"
+                to="calendar"
+                eventKey="calendar"
+                icon={<Icon as={VscCalendar} />}
+              />
+
+              <Nav.Item panel className="collapse-hide">
+                <Stack justifyContent="space-between">
+                  Yous boards
+                  <IconButton icon={<PlusIcon />} size="xs" appearance="subtle" />
+                </Stack>
+              </Nav.Item>
+
+              {boards.map((board, index) => (
+                <NavItem icon={board.icon} to={board.to} key={index} title={board.title} />
+              ))}
             </Nav>
           </Sidenav.Body>
         </Sidenav>

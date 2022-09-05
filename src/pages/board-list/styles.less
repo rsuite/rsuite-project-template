@@ -1,0 +1,33 @@
+.board-box {
+  width: 300px;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .title {
+    font-size: 1.5em;
+  }
+
+  .rs-icon {
+    font-size: 4em;
+    color: #fff;
+  }
+
+  &.board-new {
+    background: #f5f8fa;
+    color: var(--rs-text-primary);
+    height: 96px;
+    border: 1px dotted #ddd;
+    cursor: pointer;
+
+    &:hover {
+      background: #f5f5f5;
+    }
+
+    .rs-panel-body,
+    .rs-stack {
+      height: 100%;
+    }
+  }
+}

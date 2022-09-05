@@ -1,5 +1,5 @@
 {
-  "name": "rsuite-admin-template",
+  "name": "rsuite-project-template",
   "version": "1.0.0",
   "description": "RSUITE Management System",
   "main": "lib/index.js",
@@ -28,7 +28,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:rsuite/rsuite-admin-template.git"
+    "url": "git@github.com:rsuite/rsuite-project-template.git"
   },
   "dependencies": {
     "@babel/runtime": "^7.18.9",

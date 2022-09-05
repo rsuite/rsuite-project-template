@@ -100,7 +100,7 @@ const Header = () => {
       />
       <IconButton
         icon={<GithubIcon style={{ fontSize: 20 }} />}
-        href="https://github.com/rsuite/rsuite-admin-template"
+        href="https://github.com/rsuite/rsuite-project-template"
         target="_blank"
       />
 

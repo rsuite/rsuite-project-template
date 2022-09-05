@@ -12,6 +12,8 @@ const Page = () => {
 
   return (
     <PageContent
+      className="board-wrapper"
+      showCopyright={false}
       header={
         <>
           <h3 className="title">{board?.title}</h3>

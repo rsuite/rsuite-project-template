@@ -2,11 +2,16 @@ import React from 'react';
 import { Panel, PanelProps } from 'rsuite';
 import Copyright from '@/components/Copyright';
 
-const PageContent = (props: PanelProps) => {
+interface PageContentProps extends PanelProps {
+  showCopyright?: boolean;
+}
+
+const PageContent = (props: PageContentProps) => {
+  const { showCopyright = true, ...panelProps } = props;
   return (
     <>
-      <Panel style={{ background: '#fff' }} {...props} />
-      <Copyright />
+      <Panel style={{ background: '#fff' }} {...panelProps} />
+      {showCopyright && <Copyright />}
     </>
   );
 };

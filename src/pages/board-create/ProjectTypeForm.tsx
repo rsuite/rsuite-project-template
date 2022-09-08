@@ -11,20 +11,20 @@ const ProjectTypeForm = () => {
   return (
     <Form>
       <FormHeader
-        title="Create new project"
-        description="You can always create a new project from a template or another project. But if you need to start fresh, you can create a blank project         ."
+        title="Create new a board"
+        description="You can always create a new board from a template or another project. But if you need to start fresh, you can create a blank board."
       />
 
       <Stack spacing={30} style={{ margin: '60px 0' }}>
         <RadioTile
           icon={<Icon as={VscFile} />}
-          title="Create blank project"
+          title="Create blank board"
           value={type}
           name="personal"
           onChange={setType}
         >
-          Create a blank project to house your files, plan your work, and collaborate on code, among
-          other things.
+          Create a blank board to plan your task items. You can freely design the content of the
+          Kanban board。
         </RadioTile>
         <RadioTile
           icon={<Icon as={VscNotebookTemplate} />}
@@ -33,17 +33,17 @@ const ProjectTypeForm = () => {
           name="brand"
           onChange={setType}
         >
-          Create a project pre-populated with the necessary files to get you started quickly.
+          Create a board pre-populated with the necessary files to get you started quickly.
         </RadioTile>
         <RadioTile
           icon={<Icon as={VscRepoClone} />}
-          title="Import project"
+          title="Import board"
           value={type}
           name="group"
           onChange={setType}
         >
-          Migrate your data from an external source like GitHub, Bitbucket, or another instance of
-          GitLab.
+          Migrate your data from an external source like GitHub, Trello, or another instance of
+          Monday.
         </RadioTile>
       </Stack>
     </Form>

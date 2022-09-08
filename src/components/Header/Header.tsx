@@ -9,12 +9,15 @@ import {
   Avatar,
   IconButton,
   List,
-  Button
+  Button,
+  Input,
+  InputGroup
 } from 'rsuite';
 import NoticeIcon from '@rsuite/icons/Notice';
 import HelpOutlineIcon from '@rsuite/icons/HelpOutline';
 import GithubIcon from '@rsuite/icons/legacy/Github';
 import HeartIcon from '@rsuite/icons/legacy/HeartO';
+import SearchIcon from '@rsuite/icons/Search';
 
 const renderAdminSpeaker = ({ onClose, left, top, className }: any, ref) => {
   const handleSelect = eventKey => {
@@ -92,37 +95,46 @@ const Header = () => {
   const trigger = useRef<WhisperInstance>(null);
 
   return (
-    <Stack className="header" spacing={8}>
-      <IconButton
-        icon={<HeartIcon style={{ fontSize: 20 }} color="red" />}
-        href="https://opencollective.com/rsuite"
-        target="_blank"
-      />
-      <IconButton
-        icon={<GithubIcon style={{ fontSize: 20 }} />}
-        href="https://github.com/rsuite/rsuite-project-template"
-        target="_blank"
-      />
+    <Stack className="header" spacing={8} justifyContent="space-between">
+      <InputGroup inside size="lg" className="search-input">
+        <InputGroup.Button>
+          <SearchIcon />
+        </InputGroup.Button>
+        <Input placeholder="Search " />
+      </InputGroup>
 
-      <Whisper placement="bottomEnd" trigger="click" ref={trigger} speaker={renderNoticeSpeaker}>
+      <Stack spacing={8}>
         <IconButton
-          icon={
-            <Badge content={5}>
-              <NoticeIcon style={{ fontSize: 20 }} />
-            </Badge>
-          }
+          icon={<HeartIcon style={{ fontSize: 20 }} color="red" />}
+          href="https://opencollective.com/rsuite"
+          target="_blank"
         />
-      </Whisper>
+        <IconButton
+          icon={<GithubIcon style={{ fontSize: 20 }} />}
+          href="https://github.com/rsuite/rsuite-project-template"
+          target="_blank"
+        />
 
-      <Whisper placement="bottomEnd" trigger="click" ref={trigger} speaker={renderAdminSpeaker}>
-        <Avatar
-          size="sm"
-          circle
-          src="https://avatars.githubusercontent.com/u/1203827"
-          alt="@simonguo"
-          style={{ marginLeft: 8 }}
-        />
-      </Whisper>
+        <Whisper placement="bottomEnd" trigger="click" ref={trigger} speaker={renderNoticeSpeaker}>
+          <IconButton
+            icon={
+              <Badge content={5}>
+                <NoticeIcon style={{ fontSize: 20 }} />
+              </Badge>
+            }
+          />
+        </Whisper>
+
+        <Whisper placement="bottomEnd" trigger="click" ref={trigger} speaker={renderAdminSpeaker}>
+          <Avatar
+            size="sm"
+            circle
+            src="https://avatars.githubusercontent.com/u/1203827"
+            alt="@simonguo"
+            style={{ marginLeft: 8 }}
+          />
+        </Whisper>
+      </Stack>
     </Stack>
   );
 };

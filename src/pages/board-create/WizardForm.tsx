@@ -6,12 +6,10 @@ import PageNextIcon from '@rsuite/icons/PageNext';
 import PagePreviousIcon from '@rsuite/icons/PagePrevious';
 
 import ProjectTypeForm from './ProjectTypeForm';
-import TeamSettingsForm from './TeamSettingsForm';
-import BusinessDetailForm from './BusinessDetailForm';
 import ProjectInfoForm from './ProjectInfoForm';
 import Completed from './Completed';
 
-const forms = [ProjectTypeForm, ProjectInfoForm, TeamSettingsForm, BusinessDetailForm, Completed];
+const forms = [ProjectTypeForm, ProjectInfoForm, Completed];
 
 const WizardForm = () => {
   const [step, setStep] = useState(0);
@@ -19,10 +17,8 @@ const WizardForm = () => {
   return (
     <PageContent>
       <Steps current={step}>
-        <Steps.Item title="Project Type" />
-        <Steps.Item title="Project Info" />
-        <Steps.Item title="Team settings" />
-        <Steps.Item title="Business Info" />
+        <Steps.Item title="Board Type" />
+        <Steps.Item title="Board Info" />
         <Steps.Item title="Completed" />
       </Steps>
 

@@ -38,9 +38,11 @@ const Boards = () => {
         ))}
 
         <Panel className="board-box board-new">
-          <Stack spacing={10} justifyContent="center" alignItems="center">
-            <div className="title">Create new board</div>
-          </Stack>
+          <Link to="/boards/new">
+            <Stack spacing={10} justifyContent="center" alignItems="center">
+              <div className="title">Create new board</div>
+            </Stack>
+          </Link>
         </Panel>
       </Stack>
     </PageContent>

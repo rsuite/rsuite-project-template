@@ -9,7 +9,7 @@ const Brand = ({ showText, ...props }) => {
       <Logo height={26} style={{ marginTop: 6 }} />
       {showText && (
         <Link to="/">
-          <span style={{ marginLeft: 14 }}>PMP Template</span>
+          <span style={{ marginLeft: 14 }}>Kanban Boards</span>
         </Link>
       )}
     </Stack>

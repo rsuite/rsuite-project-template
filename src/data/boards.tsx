@@ -1,10 +1,9 @@
 import React from 'react';
-import LogoAdsIcon from '@rsuite/icons/legacy/LogoAds';
-import LogoAnalyticsIcon from '@rsuite/icons/legacy/LogoAnalytics';
-import LogoShopIcon from '@rsuite/icons/legacy/LogoShop';
 import { faker } from '@faker-js/faker/locale/en';
 import uniqueId from 'lodash/uniqueId';
 import { mockUsers } from './mock';
+import { Icon } from '@rsuite/icons';
+import { FaVuejs, FaCss3Alt, FaHtml5, FaJsSquare, FaReact } from 'react-icons/fa';
 
 export const creatCard = (progress?: boolean) => {
   return {
@@ -22,31 +21,31 @@ export const mockCards = (length: number, progress?: boolean) =>
 const boards = [
   {
     id: 1,
-    title: 'Advertising',
-    icon: <LogoAdsIcon color="#fa8900" />,
+    title: 'JavaScript',
+    icon: <Icon as={FaJsSquare} />,
     to: '/boards/1',
-    bgColor: 'bg-gradient-red',
+    bgColor: 'bg-gradient-orange',
     data: [
       {
-        title: 'Backlog',
+        title: 'Framework',
         cards: mockCards(10)
       },
       {
-        title: 'Progress',
+        title: 'Tools',
         cards: mockCards(10, true)
       },
       {
-        title: 'Done',
+        title: 'Services',
         cards: mockCards(10)
       }
     ]
   },
   {
     id: 2,
-    title: 'Omni-channel',
-    icon: <LogoAnalyticsIcon color="#4caf50" />,
+    title: 'CSS',
+    icon: <Icon as={FaCss3Alt} />,
     to: '/boards/2',
-    bgColor: 'bg-gradient-green',
+    bgColor: 'bg-gradient-blue',
     data: [
       {
         title: 'Design',
@@ -61,28 +60,70 @@ const boards = [
         cards: mockCards(10, true)
       },
       {
-        title: 'Release',
+        title: 'Examples',
         cards: mockCards(10)
       }
     ]
   },
   {
     id: 3,
-    title: 'E-commerce',
-    icon: <LogoShopIcon color="#3498ff" />,
+    title: 'HTML',
+    icon: <Icon as={FaHtml5} />,
     to: '/boards/3',
-    bgColor: 'bg-gradient-blue',
+    bgColor: 'bg-gradient-red',
     data: [
       {
-        title: 'Market research',
+        title: 'Tutorials',
         cards: mockCards(10)
       },
       {
-        title: 'Demand analysis.',
+        title: 'Examples',
         cards: mockCards(10, true)
       },
       {
-        title: 'Product design',
+        title: 'Documents',
+        cards: mockCards(10)
+      }
+    ]
+  },
+  {
+    id: 4,
+    title: 'React',
+    icon: <Icon as={FaReact} />,
+    to: '/boards/4',
+    bgColor: 'bg-gradient-mirage',
+    data: [
+      {
+        title: 'Tutorials',
+        cards: mockCards(10)
+      },
+      {
+        title: 'Examples',
+        cards: mockCards(10, true)
+      },
+      {
+        title: 'Documents',
+        cards: mockCards(10)
+      }
+    ]
+  },
+  {
+    id: 5,
+    title: 'Vue.js',
+    icon: <Icon as={FaVuejs} />,
+    to: '/boards/5',
+    bgColor: 'bg-gradient-green',
+    data: [
+      {
+        title: 'Tutorials',
+        cards: mockCards(10)
+      },
+      {
+        title: 'Examples',
+        cards: mockCards(10, true)
+      },
+      {
+        title: 'Documents',
         cards: mockCards(10)
       }
     ]

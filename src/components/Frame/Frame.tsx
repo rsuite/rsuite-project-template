@@ -11,7 +11,7 @@ import {
   Stack,
   IconButton
 } from 'rsuite';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import NavToggle from './NavToggle';
 import Header from '../Header';
 import NavLink from '../NavLink';
@@ -20,7 +20,6 @@ import { Icon } from '@rsuite/icons';
 import { VscCalendar } from 'react-icons/vsc';
 import { BsKanbanFill } from 'react-icons/bs';
 import { FaUsers } from 'react-icons/fa';
-import { MdWorkspaces } from 'react-icons/md';
 import PlusIcon from '@rsuite/icons/Plus';
 import boards from '@/data/boards';
 
@@ -48,7 +47,7 @@ const projects = [
   { label: 'R&D Department', value: 1 },
   { label: 'User Experience Center', value: 2 },
   { label: 'Infrastructure', value: 3 },
-  { label: 'HYPERS', value: 4 }
+  { label: 'HYPERS Web Team', value: 4 }
 ];
 
 const Frame = () => {
@@ -92,11 +91,8 @@ const Frame = () => {
                 cleanable={false}
                 block
                 size="lg"
-                renderValue={(_value, item) => (
-                  <>
-                    <Icon as={MdWorkspaces} style={{ fontSize: '1.2em' }} /> {item?.['label']}
-                  </>
-                )}
+                appearance="subtle"
+                className="team-picker"
               />
             </div>
 
@@ -125,7 +121,9 @@ const Frame = () => {
               <Nav.Item panel className="collapse-hide">
                 <Stack justifyContent="space-between">
                   Yous boards
-                  <IconButton icon={<PlusIcon />} size="xs" appearance="subtle" />
+                  <Link to="/boards/new">
+                    <IconButton icon={<PlusIcon />} size="xs" appearance="subtle" />
+                  </Link>
                 </Stack>
               </Nav.Item>
 

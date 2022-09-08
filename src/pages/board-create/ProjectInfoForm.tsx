@@ -1,7 +1,8 @@
 import React from 'react';
-import { Form, Stack, InputGroup } from 'rsuite';
+import { Form, Stack } from 'rsuite';
 import { Icon } from '@rsuite/icons';
 import { VscLock, VscWorkspaceTrusted } from 'react-icons/vsc';
+import { BsShare } from 'react-icons/bs';
 import RadioTile from '@/components/RadioTile';
 import Textarea from '@/components/Textarea';
 import FormHeader from './FormHeader';
@@ -12,31 +13,18 @@ const ProjectInfoForm = () => {
   return (
     <Form fluid>
       <FormHeader
-        title="Project Info"
-        description="Create a blank project to house your files, plan your work, and collaborate on code, among
-          other things."
+        title="Board Info"
+        description="Create a blank board to plan your task items. You can freely design the content of the Kanban board。"
       />
 
       <Form.Group controlId="name">
-        <Form.ControlLabel>Project Name</Form.ControlLabel>
+        <Form.ControlLabel>Board Name</Form.ControlLabel>
         <Form.Control name="name" />
-        <Form.HelpText>Project names must be unique.</Form.HelpText>
-      </Form.Group>
-
-      <Form.Group controlId="url">
-        <Form.ControlLabel>Project URL</Form.ControlLabel>
-
-        <InputGroup style={{ width: '100%' }}>
-          <InputGroup.Addon>https://rsuitejs.com/</InputGroup.Addon>
-          <Form.Control name="url" />
-        </InputGroup>
-        <Form.HelpText>
-          Want to house several dependent projects under the same namespace? <a>Create a group.</a>
-        </Form.HelpText>
+        <Form.HelpText>Board name must be unique.</Form.HelpText>
       </Form.Group>
 
       <Form.Group controlId="description">
-        <Form.ControlLabel>Project description (optional)</Form.ControlLabel>
+        <Form.ControlLabel>Board description (optional)</Form.ControlLabel>
         <Form.Control name="description" accepter={Textarea} />
       </Form.Group>
 
@@ -50,8 +38,7 @@ const ProjectInfoForm = () => {
             name="Private"
             onChange={setLevel}
           >
-            Project access must be granted explicitly to each user. If this project is part of a
-            group, access will be granted to members of the group.
+            Visible to everyone in your account
           </RadioTile>
           <RadioTile
             icon={<Icon as={VscWorkspaceTrusted} />}
@@ -60,7 +47,17 @@ const ProjectInfoForm = () => {
             name="Internal"
             onChange={setLevel}
           >
-            The project can be accessed by any logged in user except external users.
+            For working privately - alone or with selected team members.
+          </RadioTile>
+
+          <RadioTile
+            icon={<Icon as={BsShare} />}
+            title="Shareable"
+            value={level}
+            name="Shareable"
+            onChange={setLevel}
+          >
+            For working privately with guests outside your account.
           </RadioTile>
         </Stack>
       </Form.Group>

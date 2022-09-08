@@ -10,6 +10,7 @@ import MembersPage from './pages/members';
 import CalendarPage from './pages/calendar';
 import BoardsPage from './pages/board-list';
 import BoardPage from './pages/board';
+import CreateBoardPage from './pages/board-create';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Frame />}>
             <Route index element={<BoardsPage />} />
+            <Route path="boards/new" element={<CreateBoardPage />} />
             <Route path="boards/:id" element={<BoardPage />} />
             <Route path="boards" element={<BoardsPage />} />
             <Route path="members" element={<MembersPage />} />

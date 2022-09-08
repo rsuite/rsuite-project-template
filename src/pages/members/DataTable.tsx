@@ -103,7 +103,7 @@ const DataTable = () => {
 
       <Panel bodyFill>
         <Table
-          height={Math.max(getHeight(window) - 200, 400)}
+          height={Math.max(getHeight(window) - 250, 400)}
           data={filteredData()}
           sortColumn={sortColumn}
           sortType={sortType}

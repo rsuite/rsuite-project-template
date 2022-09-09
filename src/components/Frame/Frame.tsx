@@ -12,6 +12,7 @@ import {
   IconButton,
   CustomProvider
 } from 'rsuite';
+import enGB from 'rsuite/locales/en_GB';
 import { Outlet, Link } from 'react-router-dom';
 import NavToggle from './NavToggle';
 import Header from '../Header';
@@ -74,7 +75,7 @@ const Frame = () => {
     : {};
 
   return (
-    <CustomProvider theme={theme}>
+    <CustomProvider theme={theme} locale={enGB}>
       <Container className="frame">
         <Sidebar
           style={{ display: 'flex', flexDirection: 'column' }}

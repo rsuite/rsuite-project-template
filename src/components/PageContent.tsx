@@ -10,7 +10,7 @@ const PageContent = (props: PageContentProps) => {
   const { showCopyright = true, ...panelProps } = props;
   return (
     <>
-      <Panel style={{ background: '#fff' }} {...panelProps} />
+      <Panel className="page-content" {...panelProps} />
       {showCopyright && <Copyright />}
     </>
   );

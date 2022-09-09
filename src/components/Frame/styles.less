@@ -1,12 +1,12 @@
 .frame {
   height: 100vh;
   .rs-sidebar {
-    background: #fff;
+    background: var(--rs-body);
   }
   .rs-sidenav {
     flex: 1 1 auto;
     transition: none !important;
-    border-top: 1px solid @B100;
+    border-top: 1px solid var(--rs-divider-border);
     width: 100%;
   }
 
@@ -23,7 +23,7 @@
     }
   }
   .nav-toggle {
-    border-top: 1px solid @B100;
+    border-top: 1px solid var(--rs-divider-border);
   }
 
   .rs-sidenav-item,
@@ -66,5 +66,20 @@
 .team-picker {
   .rs-picker-toggle {
     background: #f7f7fa;
+  }
+}
+
+.page-content {
+  background: var(--rs-body);
+}
+
+.rs-theme-dark {
+  .brand a {
+    color: #fff;
+  }
+
+  .rs-picker-toggle {
+    border: 1px solid var(--rs-border-primary);
+    background: var(--rs-input-bg);
   }
 }

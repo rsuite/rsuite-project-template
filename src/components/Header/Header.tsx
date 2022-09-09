@@ -13,11 +13,13 @@ import {
   Input,
   InputGroup
 } from 'rsuite';
+import { Icon } from '@rsuite/icons';
 import NoticeIcon from '@rsuite/icons/Notice';
 import HelpOutlineIcon from '@rsuite/icons/HelpOutline';
 import GithubIcon from '@rsuite/icons/legacy/Github';
 import HeartIcon from '@rsuite/icons/legacy/HeartO';
 import SearchIcon from '@rsuite/icons/Search';
+import { MdOutlineNightlight, MdOutlineLightMode } from 'react-icons/md';
 
 const renderAdminSpeaker = ({ onClose, left, top, className }: any, ref) => {
   const handleSelect = eventKey => {
@@ -91,7 +93,14 @@ const renderNoticeSpeaker = ({ onClose, left, top, className }: any, ref) => {
   );
 };
 
-const Header = () => {
+type ThemeType = 'dark' | 'light' | 'high-contrast';
+interface HeaderProps {
+  theme: ThemeType;
+  onChangeTheme: (theme: ThemeType) => void;
+}
+
+const Header = (props: HeaderProps) => {
+  const { theme, onChangeTheme } = props;
   const trigger = useRef<WhisperInstance>(null);
 
   return (
@@ -113,6 +122,16 @@ const Header = () => {
           icon={<GithubIcon style={{ fontSize: 20 }} />}
           href="https://github.com/rsuite/rsuite-project-template"
           target="_blank"
+        />
+
+        <IconButton
+          icon={
+            <Icon
+              as={theme === 'light' ? MdOutlineNightlight : MdOutlineLightMode}
+              style={{ fontSize: 20 }}
+            />
+          }
+          onClick={() => onChangeTheme(theme === 'dark' ? 'light' : 'dark')}
         />
 
         <Whisper placement="bottomEnd" trigger="click" ref={trigger} speaker={renderNoticeSpeaker}>

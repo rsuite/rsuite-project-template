@@ -9,7 +9,8 @@ import {
   DOMHelper,
   SelectPicker,
   Stack,
-  IconButton
+  IconButton,
+  CustomProvider
 } from 'rsuite';
 import { Outlet, Link } from 'react-router-dom';
 import NavToggle from './NavToggle';
@@ -53,6 +54,7 @@ const projects = [
 const Frame = () => {
   const [expand, setExpand] = useState(true);
   const [windowHeight, setWindowHeight] = useState(getHeight(window));
+  const [theme, setTheme] = useState<'light' | 'dark' | 'high-contrast'>('light');
 
   useEffect(() => {
     setWindowHeight(getHeight(window));
@@ -72,77 +74,79 @@ const Frame = () => {
     : {};
 
   return (
-    <Container className="frame">
-      <Sidebar
-        style={{ display: 'flex', flexDirection: 'column' }}
-        width={expand ? 260 : 56}
-        collapsible
-      >
-        <Sidenav.Header>
-          <Brand showText={expand} />
-        </Sidenav.Header>
-        <Sidenav expanded={expand} appearance="subtle">
-          <Sidenav.Body style={navBodyStyle}>
-            <div style={{ margin: 20 }} className="collapse-hide">
-              <SelectPicker
-                defaultValue={4}
-                data={projects}
-                searchable={false}
-                cleanable={false}
-                block
-                size="lg"
-                appearance="subtle"
-                className="team-picker"
-              />
-            </div>
+    <CustomProvider theme={theme}>
+      <Container className="frame">
+        <Sidebar
+          style={{ display: 'flex', flexDirection: 'column' }}
+          width={expand ? 260 : 56}
+          collapsible
+        >
+          <Sidenav.Header>
+            <Brand showText={expand} />
+          </Sidenav.Header>
+          <Sidenav expanded={expand} appearance="subtle">
+            <Sidenav.Body style={navBodyStyle}>
+              <div style={{ margin: 20 }} className="collapse-hide">
+                <SelectPicker
+                  defaultValue={4}
+                  data={projects}
+                  searchable={false}
+                  cleanable={false}
+                  block
+                  size="lg"
+                  appearance="subtle"
+                  className="team-picker"
+                />
+              </div>
 
-            <Nav>
-              <NavItem
-                title="Boards"
-                to="boards"
-                eventKey="boards"
-                icon={<Icon as={BsKanbanFill} />}
-              />
+              <Nav>
+                <NavItem
+                  title="Boards"
+                  to="boards"
+                  eventKey="boards"
+                  icon={<Icon as={BsKanbanFill} />}
+                />
 
-              <NavItem
-                title="Members"
-                to="members"
-                eventKey="members"
-                icon={<Icon as={FaUsers} />}
-              />
+                <NavItem
+                  title="Members"
+                  to="members"
+                  eventKey="members"
+                  icon={<Icon as={FaUsers} />}
+                />
 
-              <NavItem
-                title="Calendar"
-                to="calendar"
-                eventKey="calendar"
-                icon={<Icon as={VscCalendar} />}
-              />
+                <NavItem
+                  title="Calendar"
+                  to="calendar"
+                  eventKey="calendar"
+                  icon={<Icon as={VscCalendar} />}
+                />
 
-              <Nav.Item panel className="collapse-hide">
-                <Stack justifyContent="space-between">
-                  Yous boards
-                  <Link to="/boards/new">
-                    <IconButton icon={<PlusIcon />} size="xs" appearance="subtle" />
-                  </Link>
-                </Stack>
-              </Nav.Item>
+                <Nav.Item panel className="collapse-hide">
+                  <Stack justifyContent="space-between">
+                    Yous boards
+                    <Link to="/boards/new">
+                      <IconButton icon={<PlusIcon />} size="xs" appearance="subtle" />
+                    </Link>
+                  </Stack>
+                </Nav.Item>
 
-              {boards.map((board, index) => (
-                <NavItem icon={board.icon} to={board.to} key={index} title={board.title} />
-              ))}
-            </Nav>
-          </Sidenav.Body>
-        </Sidenav>
-        <NavToggle expand={expand} onChange={() => setExpand(!expand)} />
-      </Sidebar>
+                {boards.map((board, index) => (
+                  <NavItem icon={board.icon} to={board.to} key={index} title={board.title} />
+                ))}
+              </Nav>
+            </Sidenav.Body>
+          </Sidenav>
+          <NavToggle expand={expand} onChange={() => setExpand(!expand)} />
+        </Sidebar>
 
-      <Container className={containerClasses}>
-        <Header />
-        <Content>
-          <Outlet />
-        </Content>
+        <Container className={containerClasses}>
+          <Header theme={theme} onChangeTheme={setTheme} />
+          <Content>
+            <Outlet />
+          </Content>
+        </Container>
       </Container>
-    </Container>
+    </CustomProvider>
   );
 };
 

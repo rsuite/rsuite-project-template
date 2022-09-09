@@ -1,7 +1,7 @@
 .rs-radio-tile {
   border-radius: 6px;
   overflow: hidden;
-  border: 2px solid #e5e5ea;
+  border: 2px solid var(--rs-divider-border);
   padding: 10px;
   position: relative;
   cursor: pointer;
@@ -48,5 +48,16 @@
   }
   .rs-icon {
     font-size: 32px;
+  }
+}
+
+.rs-theme-dark {
+  .rs-radio-tile {
+    border: 2px solid var(--rs-divider-border);
+    &:hover,
+    &.checked {
+      border: 2px solid #3498ff;
+      background: #012539;
+    }
   }
 }
